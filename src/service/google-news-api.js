@@ -34,7 +34,7 @@ const _generateGoogleFeedURL = function (method, query, locale) {
       feedUrl += "?";
       break;
   }
-  console.log("_generateGoogleFeedURL " + locale);
+  // console.log("_generateGoogleFeedURL " + locale);
   let location = locale.split("-");
   let countryCode = location[1].toUpperCase();
   feedUrl +=
@@ -120,13 +120,13 @@ const getNews = async function (method, query, locale, callback) {
     const arr = locale.split("-");
     if (arr.length !== 2) {
       try {
-        console.log("regExp " + arr[0]);
+        // console.log("regExp " + arr[0]);
         locale = arr[0] + "-" + arr[2];
       } catch (e) {
         locale = "en-GB";
       }
     }
-    console.log("getNews " + locale);
+    // console.log("getNews " + locale);
     const feedUrl = _generateGoogleFeedURL(method, query, locale);
 
     request(feedUrl, function (err, data) {
